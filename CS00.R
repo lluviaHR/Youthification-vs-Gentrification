@@ -33,7 +33,21 @@ CS00 <- within(CS00, percentilEduAtt <- as.integer(cut(CS00$EAtt00,
                                                                 na.rm= TRUE,
                                                                 type =5),
                                                        include.lowest=TRUE)))
-#4.The tract had a population of at least 500 residents 
+# 4 Percentiles for Age 25-34 90s 
+quantile(CS00$Pop90_2534, prob = seq(0,1, length = 11), na.rm= TRUE, type = 5)
+#Percentiles in a new colum. 
+CS00 <- within(CS00, percentilAge25_40 <- as.integer(cut(CS00$Pop00_2534, 
+                                                         quantile(CS00$Pop00_2534, 
+                                                                  probs=seq(0, 1, length = 11), 
+                                                                  na.rm= TRUE,
+                                                                  type =5),
+                                                         include.lowest=TRUE)))
+#5.Location Quotient (LQ) for age group 25-34
+t <- (CS00$Pop00_2534/CS00$Pop00*100)
+m <- (sum(CS00$Pop00_2534)/sum(CS00$Pop00)*100)
+CS90$LQ00 <-round(t/m, digits=2)
+
+#6.The tract had a population of at least 500 residents  
 CS00_YG <-subset(CS00, Pop00 >= 500)
 
 write.csv(CS00_YG, file="CS00_YG.csv")

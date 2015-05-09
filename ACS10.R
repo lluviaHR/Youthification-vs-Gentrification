@@ -33,7 +33,22 @@ ACS10 <- within(ACS10, percentilEduAtt <- as.integer(cut(ACS10$EAtt10,
                                                                 na.rm= TRUE,
                                                                 type =5),
                                                        include.lowest=TRUE)))
-#4.The tract had a population of at least 500 residents 
+# 4 Percentiles for Age 25-34 90s 
+quantile(ACS10$Pop10_2534, prob = seq(0,1, length = 11), na.rm= TRUE, type = 5)
+#Percentiles in a new colum. 
+ACS10 <- within(ACS10, percentilAge25_40 <- as.integer(cut(ACS10$Pop10_2534, 
+                                                         quantile(ACS10$Pop10_2534, 
+                                                                  probs=seq(0, 1, length = 11), 
+                                                                  na.rm= TRUE,
+                                                                  type =5),
+                                                         include.lowest=TRUE)))
+
+#5.Location Quotient (LQ) for age group 25-34
+t <- (ACS10$Pop10_2534/ACS10$Pop10*100)
+m <- (sum(ACS10$Pop10_2534)/sum(ACS10$Pop10)*100)
+ACS10$LQ10 <-round(t/m, digits=2)
+
+#6.The tract had a population of at least 500 residents 
 ACS10_YG <-subset(ACS10, Pop10 >= 500)
 
 write.csv(ACS10_YG, file="ACS10_YG.csv")

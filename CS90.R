@@ -26,15 +26,29 @@ CS90 <- within(CS90, percentilHValue<- as.integer(.bincode(CS90$MedianHomeValue_
 CS90$EAtt90 <- (CS90$Pop90_Hsmore/CS90$Pop90_25more) * 100
 CS90$EAtt90 <- round(CS90$EAtt90, digits =1)
 quantile(CS90$EAtt90, prob = seq(0,1, length = 11), na.rm= TRUE, type = 5)
-#Percentiles in a new colum. Use .bincode since "breaks" are not unique
+#Percentiles in a new colum. 
 CS90 <- within(CS90, percentilEduAtt <- as.integer(cut(CS90$EAtt90, 
                                                        quantile(CS90$EAtt90, 
                                                                 probs=seq(0, 1, length = 11), 
                                                                 na.rm= TRUE,
                                                                 type =5),
                                                        include.lowest=TRUE)))
+# 4 Percentiles for Age 25-34 90s 
+quantile(CS90$Pop90_2534, prob = seq(0,1, length = 11), na.rm= TRUE, type = 5)
+#Percentiles in a new colum. 
+CS90 <- within(CS90, percentilAge25_40 <- as.integer(cut(CS90$Pop90_2534, 
+                                                       quantile(CS90$Pop90_2534, 
+                                                                probs=seq(0, 1, length = 11), 
+                                                                na.rm= TRUE,
+                                                                type =5),
+                                                       include.lowest=TRUE)))
 
-#4.The tract had a population of at least 500 residents 
+#5.Location Quotient (LQ) for age group 25-34
+t <- (CS90$Pop90_2534/CS90$Pop90*100)
+m <- (sum(CS90$Pop90_2534)/sum(CS90$Pop90)*100)
+CS90$LQ90 <-round(t/m, digits=2)
+
+#6.The tract had a population of at least 500 residents 
 CS90_YG <-subset(CS90, Pop90 >= 500)
 write.csv(CS90_YG, file="CS90_YG.csv")
 dir()
