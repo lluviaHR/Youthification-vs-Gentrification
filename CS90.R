@@ -5,7 +5,7 @@ CS90 <- read.csv("CS_90R.csv")
 # 1.Percentiles for media household and house value 90s at 40th percentile
 quantile(CS90$Median_HouseholdInc_90, prob = seq(0, 1, length = 11), type = 5)
 #Percentiles in a new colum
-CS90 <- within(CS90, percentilIncome<- as.integer(cut(CS90$Median_HouseholdInc_90, 
+CS90 <- within(CS90, percentil90Income<- as.integer(cut(CS90$Median_HouseholdInc_90, 
                                                       quantile(CS90$Median_HouseholdInc_90, 
                                                                probs=seq(0, 1, length = 11), 
                                                                type =5),
@@ -17,7 +17,7 @@ CS90 <- within(CS90, percentilIncome<- as.integer(cut(CS90$Median_HouseholdInc_9
 #2. Percentiles for median home value 90s at 40th percentile
 quantile(CS90$MedianHomeValue_90, prob = seq(0,1, length = 11), type = 5)
 #Percentiles in a new colum. Use .bincode since "breaks" are not unique
-CS90 <- within(CS90, percentilHValue<- as.integer(.bincode(CS90$MedianHomeValue_90, 
+CS90 <- within(CS90, percentil90HValue<- as.integer(.bincode(CS90$MedianHomeValue_90, 
                                                            quantile(CS90$MedianHomeValue_90, 
                                                                     probs=seq(0, 1, length = 11), 
                                                                     type =5),
@@ -27,7 +27,7 @@ CS90$EAtt90 <- (CS90$Pop90_Hsmore/CS90$Pop90_25more) * 100
 CS90$EAtt90 <- round(CS90$EAtt90, digits =1)
 quantile(CS90$EAtt90, prob = seq(0,1, length = 11), na.rm= TRUE, type = 5)
 #Percentiles in a new colum. 
-CS90 <- within(CS90, percentilEduAtt <- as.integer(cut(CS90$EAtt90, 
+CS90 <- within(CS90, percentil90EduAtt <- as.integer(cut(CS90$EAtt90, 
                                                        quantile(CS90$EAtt90, 
                                                                 probs=seq(0, 1, length = 11), 
                                                                 na.rm= TRUE,
@@ -36,7 +36,7 @@ CS90 <- within(CS90, percentilEduAtt <- as.integer(cut(CS90$EAtt90,
 # 4 Percentiles for Age 25-34 90s 
 quantile(CS90$Pop90_2534, prob = seq(0,1, length = 11), na.rm= TRUE, type = 5)
 #Percentiles in a new colum. 
-CS90 <- within(CS90, percentilAge25_40 <- as.integer(cut(CS90$Pop90_2534, 
+CS90 <- within(CS90, percentil90Age25_34 <- as.integer(cut(CS90$Pop90_2534, 
                                                        quantile(CS90$Pop90_2534, 
                                                                 probs=seq(0, 1, length = 11), 
                                                                 na.rm= TRUE,
