@@ -70,7 +70,7 @@ data90_10$EAtt90_10<- ifelse(data90_10$percentil90EduAtt < data90_10$percentil10
 data90_10$Age2590_10<- ifelse(data90_10$percentil90Age25_34 < data90_10$percentil10Age25_34, data90_10$percentil10Age25_34, NA)
 #===================+++++++++++++++++++++++++++=============
 #find index given the name of the column
-match("Inc00_10",names(data00_10))
+#match("Inc00_10",names(data00_10))
 #Return index that contain "the name"
 #grep("Inc90_00",colnames (data90_00))
 #Return column that contain "the name"
