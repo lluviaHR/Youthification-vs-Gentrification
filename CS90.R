@@ -49,6 +49,6 @@ m <- (sum(CS90$Pop90_2534)/sum(CS90$Pop90)*100)
 CS90$LQ90 <-round(t/m, digits=2)
 
 #6.The tract had a population of at least 500 residents 
-CS90_YG <-subset(CS90, Pop90 >= 500)
+#CS90_YG <-subset(CS90, Pop90 >= 500)
 write.csv(CS90_YG, file="CS90_YG.csv")
 dir()
