@@ -50,5 +50,5 @@ CS90$LQ90 <-round(t/m, digits=2)
 
 #6.The tract had a population of at least 500 residents 
 #CS90_YG <-subset(CS90, Pop90 >= 500)
-write.csv(CS90_YG, file="CS90_YG.csv")
+write.csv(CS90, file="CS90_YG.csv")
 dir()

@@ -51,4 +51,4 @@ ACS10$LQ10 <-round(t/m, digits=2)
 #6.The tract had a population of at least 500 residents 
 #ACS10_YG <-subset(ACS10, Pop10 >= 500)
 
-write.csv(ACS10_YG, file="ACS10_YG.csv")
+write.csv(ACS10, file="ACS10_YG.csv")
