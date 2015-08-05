@@ -25,3 +25,7 @@ BYTES of the BIG APPLE™ from 2000 to 2014 (Land Use in New York City)
 * ArcGIS 
 
 ![](https://cloud.githubusercontent.com/assets/11526062/9099621/42bdbbae-3ba0-11e5-97b3-8c74589aa238.jpg)
+
+![](https://cloud.githubusercontent.com/assets/11526062/9099728/4fe5bb82-3ba1-11e5-802a-18192bc1cb4c.jpg)
+
+![](https://cloud.githubusercontent.com/assets/11526062/9099660/8ecdbe90-3ba0-11e5-86f3-c427a84f7e4e.png)
