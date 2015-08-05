@@ -1,6 +1,6 @@
 # Youthification-vs-Gentrification
-Spatial Analytics 
-
+##Spatial Analytics
+ 
 ## Description
 The current  generation, commonly referred as Millennials, is significantly  impacting the housing market, driving developers towards compact, mixed-use residential  developments that are close to transit. This trend raises several important issues for urban planning about housing and job creation in our cities, from the “ideal size” of an apartment  to the inclusion of alternative urban transportations systems.  For these reasons, this project is a first attempt to map and identify “youthification” processes in the City.
 
