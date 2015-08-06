@@ -19,7 +19,7 @@ NYC Shapefiles from EsriPress and CUNY Baruch College
 Subway Line Shapefile from NYC Open Data
 BYTES of the BIG APPLE™ from 2000 to 2014 (Land Use in New York City)
 
-##Technology Stack:
+##Technology Stack
 * R(Data Processing)
 * python (Arcpy.mapping) 
 * ArcGIS 
